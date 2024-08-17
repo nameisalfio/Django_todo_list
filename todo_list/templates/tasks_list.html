@@ -5,21 +5,40 @@
 {% block header %}Tasks List{% endblock %}
 
 {% block content %}
-    <div class="row">
+    <div class="container mb-4">
+        <a href="{% url 'task_create' %}" class="btn btn-add mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path d="M8 1v14M1 8h14"/>
+            </svg> Add New Task
+        </a>
+    </div>
+    <div class="task-container">
         {% for task in tasks %}
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="{{ task.get_absolute_url }}">{{ task.title }}</a></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ task.date }}</h6>
-                    <p class="card-text">{{ task.description | safe | linebreaks | truncatewords:10 }}</p>
-                    <p>Status:
-                        {% if task.complete %}
-                            <span class="badge bg-success">Complete</span>
-                        {% else %}
-                            <span class="badge bg-danger">Not Complete</span>
-                        {% endif %}
-                    </p>
+        <div class="task-card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ task.get_absolute_url }}">{{ task.title }}</a></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ task.date }}</h6>
+                <p class="card-text">{{ task.description | safe | linebreaks | truncatewords:10 }}</p>
+                <p>Status:
+                    {% if task.complete %}
+                        <span class="badge bg-success">Complete</span>
+                    {% else %}
+                        <span class="badge bg-danger">Not Complete</span>
+                    {% endif %}
+                </p>
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'task_update' task.pk %}" class="btn btn-edit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path d="M12.146 2.854a.5.5 0 0 1 .708 0l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5-2.5-2.5 1.5-1.5zM1.5 13.5V15h1.5v-1.5h8V15h1.5v-1.5H1.5z"/>
+                        </svg>
+                        Edit
+                    </a>
+                    <a href="{% url 'task_delete' task.pk %}" class="btn btn-delete">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 0a.5.5 0 0 1 .5.5V1h5V.5a.5.5 0 0 1 1 0V1h1a1 1 0 0 1 1 1v1h-11V2a1 1 0 0 1 1-1h1V.5a.5.5 0 0 1 .5-.5zM3 4h10v1H3V4zM4 5v8a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V5H4z"/>
+                        </svg>
+                        Delete
+                    </a>
                 </div>
             </div>
         </div>

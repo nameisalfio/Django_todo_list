@@ -13,20 +13,20 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'welcome' %}">Todo List</a>
+            <a class="navbar-brand" href="{% url 'tasks_list' %}">Todo List</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'welcome' %}">Welcome</a>
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'tasks_list' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'tasks_list' %}">Home</a>
+                        <a class="nav-link {% if request.path == '/welcome/' %}active{% endif %}" href="{% url 'welcome' %}">Welcome</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">About us</a>
+                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About Us</a>
                     </li>
                 </ul>
             </div>
@@ -39,8 +39,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; {{ current_year }} Todo List | <a href="{% url 'about' %}" class="text-white">About us</a></p>
+    <footer class="bg-primary text-white text-center py-3">
+        <p>&copy; {{ current_year }} Todo List | <a href="{% url 'about' %}" class="text-white">About Us</a></p>
     </footer>
 
     <!-- Bootstrap JS Bundle with Popper -->
