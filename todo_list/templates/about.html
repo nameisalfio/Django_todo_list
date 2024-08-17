@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About Us{% endblock %}
+
+{% block header %}About Us{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <!-- Hero Section -->
+        <div class="jumbotron bg-primary text-white text-center py-5 rounded">
+            <h1 class="display-4">Welcome to Todo List!</h1>
+            <p class="lead">Your ultimate solution for task management and productivity.</p>
+            <a href="{% url 'tasks_list' %}" class="btn btn-light btn-lg">Start Managing Tasks</a>
+        </div>
+
+        <!-- Our Mission -->
+        <div class="row my-5">
+            <div class="col-lg-6">
+                <h2 class="mb-4">Our Mission</h2>
+                <p>At Todo List, our mission is to provide you with a simple yet powerful tool to help you organize your tasks efficiently. Our goal is to make task management straightforward so you can focus on what matters most.</p>
+                <p>We believe in making productivity easy and accessible, and our app is designed with user experience in mind to ensure you get the most out of your day.</p>
+            </div>
+            <div class="col-lg-6">
+                <img class="image-responsive" src="{% static 'img/mission.png' %}" class="img-fluid rounded" alt="Mission Image">
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="my-5">
+            <h2 class="mb-4">Key Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <i class="fas fa-check-circle fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Easy Task Management</h5>
+                            <p class="card-text">Create, update, and delete tasks effortlessly with an intuitive interface.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <i class="fas fa-calendar-check fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Due Dates and Reminders</h5>
+                            <p class="card-text">Set deadlines and get reminders to ensure you never miss a task.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <i class="fas fa-star fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Customizable Priorities</h5>
+                            <p class="card-text">Organize tasks by priority to focus on what’s most important.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="my-5 bg-light py-4 rounded">
+            <h2 class="text-center mb-4">What Our Users Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial text-center">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Todo List has transformed the way I manage my daily tasks. It's simple, effective, and easy to use!"</p>
+                            <footer class="blockquote-footer">John Doe, <cite title="Source Title">Productivity Enthusiast</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial text-center">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"I love how I can track my tasks and set priorities effortlessly. It’s the perfect tool for staying organized."</p>
+                            <footer class="blockquote-footer">Jane Smith, <cite title="Source Title">Freelancer</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial text-center">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"The reminders and due dates are a game changer. Highly recommend this app to anyone looking to boost their productivity."</p>
+                            <footer class="blockquote-footer">Alex Brown, <cite title="Source Title">Project Manager</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

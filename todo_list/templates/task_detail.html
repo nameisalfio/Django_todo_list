@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Tasks {{task.title}}{% endblock %}
+
+{% block header %} {{ block.super }} |  {{ task.title }} {% endblock %}
+{% block nav %}{% endblock %}
+{% block content %}
+    <div class="task">
+        <h3>{{ task.date }}</h3>
+        <p>{{ task.description | safe | linebreaks }}</p>
+        <p>Status:
+            {% if task.complete %}
+                <strong>Complete</strong>
+            {% else %}
+                <strong>Not Complete</strong>
+            {% endif %}
+        </p>
+    </div>
+    <button><a href="/tasks">Back to Home</a></button>
+{% endblock %}
+
+
