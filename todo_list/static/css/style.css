@@ -1,0 +1,88 @@
+:root {
+    --dark-bg: #1a1a2e;
+    --darker-bg: #16213e;
+    --accent-color: #0f3460;
+    --text-color: #e94560;
+    --light-text: #f1f1f1;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+.todo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--darker-bg);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(15, 52, 96, 0.3);
+    padding: 30px;
+}
+
+.task-container {
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    will-change: transform, background-color;
+}
+
+.task-container:hover {
+    background-color: #1a4b8c;
+    transform: translateY(-2px);
+}
+
+.task-container.dragging {
+    opacity: 0.5;
+}
+
+.task-container.drag-over {
+    border: 2px dashed var(--text-color);
+    background-color: #1a4b8c;
+}
+
+.task-actions button {
+    margin-left: 5px;
+    color: var(--light-text);
+    border-color: var(--light-text);
+}
+
+.task-actions button:hover {
+    background-color: var(--text-color);
+    border-color: var(--text-color);
+    color: var(--darker-bg);
+}
+
+.back-home-btn {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--light-text);
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-home-btn:hover {
+    background-color: var(--text-color);
+    border-color: var(--text-color);
+    color: var(--darker-bg);
+}
+
+.btn-success {
+    background-color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.btn-success:hover {
+    background-color: #d13652;
+    border-color: #d13652;
+}
+
+h1, h2 {
+    color: var(--text-color);
+}

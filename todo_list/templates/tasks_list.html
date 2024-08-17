@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Tasks List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Tasks List</h1>
+    {% for object in object_list %}
+    <h2>{{ object.title }}</h2>
+    <h3>{{ object.date }}</h3>
+    <p>{{ object.description | safe | linebreaks | truncatewords:30}}</p>
+    <p>Status:
+        {% if object.complete %}
+            <strong>Complete</strong>
+        {% else %}
+            <strong>Not Complete</strong>
+        {% endif %}
+    </p>
+    {% endfor %}
+</body>
+</html>
+
