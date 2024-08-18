@@ -99,6 +99,7 @@ body {
     transition: all 0.3s ease;
     flex-shrink: 0;
     margin-left: 15px;
+    position: relative;
 }
 
 .task-status.completed {
@@ -112,8 +113,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     font-size: 16px;
+}
+
+.task-status:hover {
+    transform: scale(1.1);
 }
 
 /* Button Styles */

@@ -11,7 +11,11 @@
             <div class="card-body">
                 <h3 class="card-title">
                     <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a>
-                    <span class="task-status {% if task.complete %}completed{% endif %}"></span>
+                    <form method="POST" action="{% url 'toggle_task_status' task.id %}" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="task-status {% if task.complete %}completed{% endif %}" title="Toggle task status">
+                        </button>
+                    </form>
                 </h3>
                 <h6 class="card-subtitle mb-2 text-muted">{{ task.date }}</h6>
                 <p class="card-text">{{ task.description | safe | linebreaks | truncatewords:10 }}</p>

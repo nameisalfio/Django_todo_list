@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from datetime import datetime
 from django.urls import reverse_lazy
 from .models import Task
@@ -9,6 +9,12 @@ def welcome(request):
 
 def about(request):
     return render(request, 'about.html', {'current_year': datetime.now().year})
+
+def toggle_task_status(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    task.complete = not task.complete
+    task.save()
+    return redirect('tasks_list')  # Assumi che 'tasks_list' sia il nome della tua vista per la lista dei task
 
 class TaskListView(ListView):
     model = Task
