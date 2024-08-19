@@ -100,6 +100,7 @@ body {
     flex-shrink: 0; /* Prevent the checkbox from shrinking */
     margin-left: 15px; /* Space to the left */
     position: relative; /* Positioning for the checkmark */
+    background-color: transparent;
 }
 
 .task-status.completed {

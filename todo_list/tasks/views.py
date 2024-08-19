@@ -1,8 +1,10 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from datetime import datetime
 from django.urls import reverse_lazy
 from .models import Task
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views import View
 
 def welcome(request):
     return render(request, 'welcome.html', {'current_year': datetime.now().year})
@@ -34,6 +36,8 @@ class TaskCreateView(CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        self.object.position = self.object.id
+        self.object.save()
         return redirect('tasks_list')
 
 class TaskUpdateView(UpdateView):
@@ -45,3 +49,10 @@ class TaskDeleteView(DeleteView):
     model = Task
     template_name = "task_confirm_delete.html"
     success_url = reverse_lazy('tasks_list')
+
+class UpdateTaskPositionView(View):
+    def post(self, request):
+        task_ids = request.POST.getlist('task_ids[]')
+        for index, task_id in enumerate(task_ids):
+            Task.objects.filter(id=task_id).update(position=index + 1)
+        return JsonResponse({'status': 'success'})

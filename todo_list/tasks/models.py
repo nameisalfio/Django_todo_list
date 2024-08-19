@@ -6,6 +6,10 @@ class Task(models.Model):
     description = models.TextField(blank=True)
     date = models.DateField(auto_now=False, auto_now_add=True)
     complete = models.BooleanField(default=False)
+    position = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['position']
 
     def __str__(self):
         return self.title
