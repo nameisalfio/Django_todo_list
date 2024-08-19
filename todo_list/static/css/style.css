@@ -300,6 +300,7 @@ a:hover {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    position: relative; /* Ensure task list container has relative positioning */
 }
 
 .task-item {
@@ -312,6 +313,7 @@ a:hover {
     color: var(--light-text);
     transition: transform 0.3s ease, background-color 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Allow the item to be moved */
 }
 
 .task-item:hover {
@@ -329,4 +331,9 @@ a:hover {
 .task-item.drag-over {
     border: 2px dashed var(--text-color);
     background-color: var(--accent-color);
+}
+
+/* Add transition for dynamic reordering */
+.task-list {
+    transition: all 0.3s ease; /* Smooth transition for list reordering */
 }
