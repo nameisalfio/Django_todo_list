@@ -39,8 +39,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white text-center py-3">
-        <p>&copy; {{ current_year }} Todo List | <a href="{% url 'about' %}" class="text-white">About Us</a></p>
+    <footer class="footer">
+        <div class="container">
+            © {{ current_year }} Todo List | <a href="{% url 'about' %}" style="font-size: 1rem; color: #3498db; text-decoration: none;">About Us</a>
+        </div>
     </footer>
 
     <!-- Bootstrap JS Bundle with Popper -->
