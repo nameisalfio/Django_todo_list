@@ -1,62 +1,51 @@
 {% extends "base.html" %}
 
 {% block title %}Tasks List{% endblock %}
+
 <script>
     const updateTaskPositionUrl = "{% url 'update_task_position' %}";
+    const toggleTaskStatusUrl = "{% url 'toggle_task_status' 'task_id' %}";
 </script>
+
 {% block header %}Tasks List{% endblock %}
 
 {% block content %}
-    <div class="task-container">
-        <ul id="task-list" class="task-list">
-            {% for task in tasks %}
-            <li class="task-item" data-id="{{ task.id }}">
-                <div class="task-card">
-                    <div class="card-body">
-                        <h3 class="card-title">
-                            <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a>
-                            <form method="POST" action="{% url 'toggle_task_status' task.id %}" class="d-inline">
-                                {% csrf_token %}
-                                <button type="submit" class="task-status {% if task.complete %}completed{% endif %}" title="Toggle task status">
-                                </button>
-                            </form>
-                        </h3>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ task.date }}</h6>
-                        <p class="card-text">{{ task.description | safe | linebreaks | truncatewords:10 }}</p>
-                        <p>Status:
-                            {% if task.complete %}
-                                <span class="badge bg-success">Complete</span>
-                            {% else %}
-                                <span class="badge bg-danger">Not Complete</span>
-                            {% endif %}
-                        </p>
-                        <div class="task-actions d-flex justify-content-end mt-3">
-                            <a href="{% url 'task_update' task.pk %}" class="btn btn-edit mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                                </svg>
-                                Edit
-                            </a>
-                            <a href="{% url 'task_delete' task.pk %}" class="btn btn-delete">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                </svg>
-                                Delete
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        <div class="container mb-4">
-           <a href="{% url 'task_create' %}" class="btn btn-add">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
+    <div class="container mt-4">
+        <!-- Add New Task Button -->
+        <div class="mb-4">
+            <a href="{% url 'task_create' %}" class="btn btn-primary">
                 Add New Task
             </a>
         </div>
+
+        <!-- Task List -->
+        <ol id="task-list" class="list-group list-group-numbered">
+            {% for task in tasks %}
+            <li class="list-group-item task-item d-flex justify-content-between align-items-start" data-id="{{ task.id }}">
+                <div class="task-card d-flex w-100 justify-content-between align-items-start">
+                    <!-- Task Title -->
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">
+                            <a href="{% url 'task_detail' task.id %}" class="text-decoration-none text-dark">{{ task.title }}</a>
+                        </div>
+                        <!-- Task Description -->
+                        <div>{{ task.description|truncatewords:10 }}</div>
+                    </div>
+                    <!-- Status Badge -->
+                    <button class="btn status-btn {% if task.complete %}completed{% else %}not-completed{% endif %}" data-id="{{ task.id }}" title="{% if task.complete %}Completed{% else %}Not Completed{% endif %}">
+                        {% if task.complete %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                                <path d="M6.293 9.293a1 1 0 0 1 1.414 0L12 12.586 14.707 10.707a1 1 0 0 1 1.414 1.414l-3.5 3.5a1 1 0 0 1-1.414 0l-6-6a1 1 0 0 1 0-1.414z"/>
+                            </svg>
+                        {% else %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
+                                <path d="M8 3a5 5 0 1 1-5 5 5 5 0 0 1 5-5zm0-2a7 7 0 1 0 7 7 7 7 0 0 0-7-7z"/>
+                            </svg>
+                        {% endif %}
+                    </button>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
     </div>
 {% endblock %}

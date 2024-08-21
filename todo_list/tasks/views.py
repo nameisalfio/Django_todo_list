@@ -7,9 +7,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Max
 from .models import Task
 
-def welcome(request):
-    return render(request, 'welcome.html')
-
 def about(request):
     return render(request, 'about.html')
 
@@ -31,11 +28,23 @@ def update_task_position(request):
             return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'fail'}, status=400)
 
+def task_list(request):
+    search_query = request.GET.get('search', '')  # Get search query from URL parameters
+    tasks = Task.objects.filter(title__icontains=search_query).order_by('-date')  # Filter tasks based on search query
+    return render(request, 'tasks_list.html', {'tasks': tasks})
+
 class TaskListView(ListView):
     model = Task
     template_name = "tasks_list.html"
     context_object_name = 'tasks'
     ordering = ['position']
+
+    def get_queryset(self):
+        search_query = self.request.GET.get('search', '')  # Get search query from URL parameters
+        queryset = super().get_queryset()
+        if search_query:
+            queryset = queryset.filter(title__icontains=search_query)  # Filter tasks based on search query
+        return queryset
 
 class TaskDetailView(DetailView):
     model = Task
