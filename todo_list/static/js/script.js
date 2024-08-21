@@ -15,13 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     taskIds.push(item.getAttribute('data-id'));
                 });
 
-                fetch("{% url 'update_task_position' %}", {
+                fetch("/tasks/update-task-position/", {
                     method: 'POST',
                     headers: {
                         'X-CSRFToken': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Content-Type': 'application/json',
                     },
-                    body: new URLSearchParams({ 'task_ids[]': taskIds })
+                    body: JSON.stringify({ task_ids: taskIds })
                 })
                 .then(response => response.json())
                 .then(data => console.log(data))

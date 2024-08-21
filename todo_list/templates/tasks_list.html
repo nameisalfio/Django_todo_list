@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block title %}Tasks List{% endblock %}
-
+<script>
+    const updateTaskPositionUrl = "{% url 'update_task_position' %}";
+</script>
 {% block header %}Tasks List{% endblock %}
 
 {% block content %}
