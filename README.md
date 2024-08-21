@@ -7,7 +7,7 @@ This document outlines the structure and functionality of a web-based task manag
 ## Directory Structure
 
 ```bash
-Todo_list
+Django_todo_list
 ├── README.md
 └── todo_list
     |
@@ -84,7 +84,7 @@ Ensure you have Python (version 3.6 or higher) and pip installed on your system.
 ```bash
 git clone git@github.com
 /todo_list.git
-cd todo_list
+cd Django_todo_list
 ```
 
 2. Set up a virtual environment (recommended):
