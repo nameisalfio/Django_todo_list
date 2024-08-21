@@ -82,8 +82,7 @@ Ensure you have Python (version 3.6 or higher) and pip installed on your system.
 1. Clone the repository:
 
 ```bash
-git clone git@github.com
-/todo_list.git
+git clone git@github.com/todo_list.git
 cd Django_todo_list
 ```
 
