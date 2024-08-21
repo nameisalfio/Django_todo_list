@@ -1,7 +1,5 @@
 from django.urls import path
 from . import views as task_views
-from . models import Task
-from . views import *
 
 # Task list
 # Single task of list
