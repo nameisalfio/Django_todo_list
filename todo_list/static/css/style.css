@@ -1,86 +1,164 @@
-/* Ensure the navbar container is full width */
-.navbar {
-    width: 100%;
+/* Space at the top for fixed navbar */
+body {
+    padding-top: 56px; /* Adjust based on navbar height */
 }
 
-/* Flex container for navbar items */
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-color: #2c3e50 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Navbar flex container */
 .navbar .d-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Flex container for left side of navbar */
-.navbar .d-flex > div {
-    display: flex;
-    align-items: center;
-}
-
-/* Adjust styling for the navbar brand */
+/* Navbar brand styling */
 .navbar-brand {
-    font-size: 1.5rem; /* Adjust the size as needed */
-    font-weight: bold; /* Make the text bold */
-    margin-right: 1rem; /* Space between the brand and the links */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 1rem;
 }
 
-/* Ensure navbar links are aligned and spaced */
+/* Navbar link styling */
 .navbar-nav {
     display: flex;
     align-items: center;
-    margin-left: 1rem;
 }
 
-/* Styling for navbar links */
 .nav-link {
-    font-size: 1rem; /* Adjust the font size if needed */
-    margin-right: 1rem; /* Space between the links */
+    font-size: 1rem;
+    margin-right: 1rem;
+    color: white !important;
 }
 
-/* Ensure search form is aligned */
+/* Search form styling */
 .form-control {
-    max-width: 300px; /* Adjust width of search input if needed */
+    max-width: 300px;
 }
 
-/* Stili per la lista di task */
+.btn-outline-success {
+    border-color: #2c3e50;
+    color: #2c3e50;
+    background-color: white;
+    border-radius: 0.25rem;
+}
+
+.btn-outline-success:hover {
+    background-color: white;
+    color: #2c3e50;
+    border-color: #2c3e50;
+}
+
+/* Task list styling */
 .list-group-item {
     position: relative;
     padding: 1rem;
-    border-radius: .375rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem; /* Increased margin for better spacing */
+    border-radius: .5rem; /* Slightly rounded corners */
+    background: white;
+    border: 1px solid #dee2e6; /* Light border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow transition */
 }
 
-/* Cerchio dello stato */
+.list-group-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+/* Status button styling */
 .status-btn {
     border: none;
     background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px; /* Dimensioni del cerchio ridotte */
+    width: 30px;
     height: 30px;
     padding: 0;
     cursor: pointer;
 }
 
-.status-btn.completed .status-circle {
+/* Status circle styling */
+.status-circle {
+    stroke: #2c3e50;
+    stroke-width: 1;
+    fill: none;
+}
+
+/* Status button for completed tasks */
+.status-btn.completed .status-circle path {
+    display: block;
     stroke: green;
+    stroke-width: 3;
+    fill: none;
 }
 
-.status-btn.not-completed .status-circle {
-    stroke: lightgray;
-}
-
+/* Hide path by default */
 .status-circle path {
     display: none;
 }
 
-.status-btn.completed .status-circle path {
-    display: block;
-    stroke: green;
-    background: green;
-}
-
+/* Hover effect for status button */
 .status-btn:hover {
     background-color: #f0f0f0;
     border-radius: 50%;
+}
+
+/* Drag and drop styles */
+.dragging {
+    opacity: 0.5; /* Semi-transparent while dragging */
+}
+
+/* Footer styling */
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* Button primary styling to match footer color */
+.btn-primary {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+.btn-primary:hover {
+    background-color: #34495e;
+    border-color: #34495e;
+}
+
+/* Rimuovere la sottolineatura dai link */
+a {
+    text-decoration: none; /* Rimuove la sottolineatura */
+}
+
+/* Styling per i link nel footer */
+.footer a {
+    color: #ecf0f1; /* Colore chiaro per contrastare con il background scuro */
+    font-weight: bold; /* Opzionale: rende il link più evidente */
+}
+
+/* Effetto hover per i link nel footer */
+.footer a:hover {
+    color: #3498db; /* Colore blu brillante per l'effetto hover */
+    text-decoration: underline; /* Riappare la sottolineatura al passaggio del mouse */
+}
+
+/* Assicurati che gli altri link non abbiano la sottolineatura */
+.nav-link {
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
 }

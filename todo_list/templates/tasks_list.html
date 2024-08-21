@@ -34,9 +34,9 @@
                     <!-- Status Badge -->
                     <button class="btn status-btn {% if task.complete %}completed{% else %}not-completed{% endif %}" data-id="{{ task.id }}" title="{% if task.complete %}Completed{% else %}Not Completed{% endif %}">
                         <svg class="status-circle" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="12" cy="12" r="11" stroke="#2c3e50" stroke-width="2" fill="none"/>
                             {% if task.complete %}
-                                <path d="M7 12l4 4 6-6" stroke="green" stroke-width="3" fill="none"/>
+                                <path d="M7 12l4 4 6-6" stroke="green" stroke-width="2" fill="none"/>
                             {% endif %}
                         </svg>
                     </button>

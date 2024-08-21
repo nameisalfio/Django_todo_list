@@ -16,7 +16,11 @@
             {% endif %}
         </p>
     </div>
-    <button><a href="/tasks">Back to Home</a></button>
+    <div class="mb-4">
+        <a href="{% url 'tasks_list' %}" class="btn btn-primary">
+            Back to Home
+        </a>
+    </div>
 {% endblock %}
 
 
