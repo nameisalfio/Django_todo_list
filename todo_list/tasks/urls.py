@@ -14,3 +14,4 @@ urlpatterns = [
     path('toggle-task-status/<int:task_id>/', task_views.toggle_task_status, name='toggle_task_status'),
     path('update-task-position/', task_views.update_task_position, name='update_task_position'),
 ]
+

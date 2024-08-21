@@ -10,11 +10,14 @@ from .models import Task
 def about(request):
     return render(request, 'about.html')
 
+@csrf_exempt
 def toggle_task_status(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
-    task.complete = not task.complete
-    task.save()
-    return redirect('tasks_list')
+    if request.method == 'POST':
+        task = get_object_or_404(Task, id=task_id)
+        task.complete = not task.complete
+        task.save()
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'fail'}, status=400)
 
 @csrf_exempt
 def update_task_position(request):

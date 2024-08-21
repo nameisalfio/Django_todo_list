@@ -45,40 +45,42 @@
 .list-group-item {
     position: relative;
     padding: 1rem;
-    border: 1px solid #ddd;
     border-radius: .375rem;
     margin-bottom: .5rem;
 }
 
-/* Bottone per lo stato del task */
+/* Cerchio dello stato */
 .status-btn {
     border: none;
-    background: none;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
+    width: 30px; /* Dimensioni del cerchio ridotte */
+    height: 30px;
+    padding: 0;
     cursor: pointer;
-    font-size: 16px;
 }
 
-/* Stile per i task completati */
-.status-btn.completed {
-    background-color: white;
-    border: 2px solid green;
-    color: green;
+.status-btn.completed .status-circle {
+    stroke: green;
 }
 
-/* Stile per i task non completati */
-.status-btn.not-completed {
-    background-color: white;
-    border: 2px solid grey;
-    color: grey;
+.status-btn.not-completed .status-circle {
+    stroke: lightgray;
 }
 
-/* Icone SVG per il cerchio e la spunta */
-.status-btn svg {
-    fill: currentColor;
+.status-circle path {
+    display: none;
+}
+
+.status-btn.completed .status-circle path {
+    display: block;
+    stroke: green;
+    background: green;
+}
+
+.status-btn:hover {
+    background-color: #f0f0f0;
+    border-radius: 50%;
 }
