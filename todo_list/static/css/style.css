@@ -162,3 +162,65 @@ a {
 .nav-link:hover {
     text-decoration: underline;
 }
+
+/* Hero Section */
+.jumbotron {
+    background-color: #2c3e50; /* Colore del footer */
+    color: #ecf0f1; /* Colore del testo chiaro */
+    padding: 3rem; /* Maggiore padding per migliorare la visibilità */
+    border-radius: .375rem; /* Angoli arrotondati */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera per un effetto di sollevamento */
+}
+
+/* Bottoni nella Hero Section */
+.jumbotron .btn-light {
+    color: #2c3e50; /* Colore del testo del bottone */
+    background-color: #ecf0f1; /* Colore di sfondo del bottone */
+    border-color: #2c3e50; /* Colore del bordo del bottone */
+}
+
+/* Bottone della Hero Section al passaggio del mouse */
+.jumbotron .btn-light:hover {
+    background-color: #2c3e50; /* Colore di sfondo al passaggio del mouse */
+    color: #ecf0f1; /* Colore del testo al passaggio del mouse */
+}
+
+/* Our Mission */
+.row.my-5 {
+    margin-bottom: 3rem; /* Maggiore distanza tra le righe */
+}
+
+.img-fluid {
+    border-radius: .375rem; /* Angoli arrotondati per l'immagine */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera per l'immagine */
+}
+
+/* Key Features */
+.card {
+    border: none; /* Rimuove il bordo delle card */
+    border-radius: .375rem; /* Angoli arrotondati per le card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera per le card */
+}
+
+.card-body {
+    background-color: #fff; /* Colore di sfondo della card */
+}
+
+/* Icone nelle card */
+.card i {
+    color: #2c3e50; /* Colore delle icone */
+}
+
+/* Testimonials */
+.testimonial {
+    background-color: #fff; /* Colore di sfondo per le testimonianze */
+    border-radius: .375rem; /* Angoli arrotondati */
+    padding: 1.5rem; /* Padding interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera per le testimonianze */
+    margin-bottom: 1.5rem; /* Spaziatura tra le testimonianze */
+}
+
+/* Citazioni nelle testimonianze */
+.blockquote-footer {
+    color: #2c3e50; /* Colore del testo del footer per la citazione */
+}

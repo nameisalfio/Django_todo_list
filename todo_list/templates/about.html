@@ -7,7 +7,7 @@
 {% block content %}
     <div class="container my-5">
         <!-- Hero Section -->
-        <div class="jumbotron bg-primary text-white text-center py-5 rounded">
+        <div class="jumbotron text-white text-center py-5 rounded">
             <h1 class="display-4">Welcome to Todo List!</h1>
             <p class="lead">Your ultimate solution for task management and productivity.</p>
             <div class="mb-4">
@@ -25,7 +25,7 @@
                 <p>We believe in making productivity easy and accessible, and our app is designed with user experience in mind to ensure you get the most out of your day.</p>
             </div>
             <div class="col-lg-6">
-                <img class="image-responsive" src="{% static 'img/mission.png' %}" class="img-fluid rounded" alt="Mission Image">
+                <img class="img-fluid" src="{% static 'img/mission.png' %}" alt="Mission Image">
             </div>
         </div>
 
@@ -36,7 +36,7 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <i class="fas fa-check-circle fa-3x mb-3 text-primary"></i>
+                            <i class="fas fa-check-circle fa-3x mb-3"></i>
                             <h5 class="card-title">Easy Task Management</h5>
                             <p class="card-text">Create, update, and delete tasks effortlessly with an intuitive interface.</p>
                         </div>
@@ -45,7 +45,7 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <i class="fas fa-calendar-check fa-3x mb-3 text-primary"></i>
+                            <i class="fas fa-calendar-check fa-3x mb-3"></i>
                             <h5 class="card-title">Due Dates and Reminders</h5>
                             <p class="card-text">Set deadlines and get reminders to ensure you never miss a task.</p>
                         </div>
@@ -54,7 +54,7 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <i class="fas fa-star fa-3x mb-3 text-primary"></i>
+                            <i class="fas fa-star fa-3x mb-3"></i>
                             <h5 class="card-title">Customizable Priorities</h5>
                             <p class="card-text">Organize tasks by priority to focus on what’s most important.</p>
                         </div>
@@ -64,14 +64,14 @@
         </div>
 
         <!-- Testimonials -->
-        <div class="my-5 bg-light py-4 rounded">
+        <div class="my-5 py-4 rounded">
             <h2 class="text-center mb-4">What Our Users Say</h2>
             <div class="row">
                 <div class="col-md-4">
                     <div class="testimonial text-center">
                         <blockquote class="blockquote">
                             <p class="mb-0">"Todo List has transformed the way I manage my daily tasks. It's simple, effective, and easy to use!"</p>
-                            </blockquote>
+                        </blockquote>
                         <footer class="blockquote-footer">John Doe, <cite title="Source Title">Productivity Enthusiast</cite></footer>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                     <div class="testimonial text-center">
                         <blockquote class="blockquote">
                             <p class="mb-0">"I love how I can track my tasks and set priorities effortlessly. It’s the perfect tool for staying organized."</p>
-                            </blockquote>
+                        </blockquote>
                         <footer class="blockquote-footer">Jane Smith, <cite title="Source Title">Freelancer</cite></footer>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                     <div class="testimonial text-center">
                         <blockquote class="blockquote">
                             <p class="mb-0">"Highly recommend this app to anyone looking to boost their productivity."</p>
-                            </blockquote>
+                        </blockquote>
                         <footer class="blockquote-footer">Alex Brown, <cite title="Source Title">Project Manager</cite></footer>
                     </div>
                 </div>
