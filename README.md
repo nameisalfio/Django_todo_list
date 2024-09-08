@@ -148,3 +148,7 @@ I welcome contributions to this project. If you'd like to suggest improvements o
 ## Conclusion
 
 This Task Management Application, built on the Django framework, offers a robust solution for organizing personal or professional tasks. Its intuitive interface, powerful backend, and drag and drop functionality provide a seamless experience for managing and prioritizing daily activities. I encourage you to explore the full capabilities of this application and welcome your feedback for continuous improvement.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
